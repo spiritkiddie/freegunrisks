@@ -65,10 +65,12 @@ a.bottom:hover {
 
 .findMe {
   width: 100%;
-  padding: 8px;
+  padding: 23px;
   display: block;
   background: #f1f1f1;
   font-weight: 600;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .findMe:hover, .findMe:focus {
@@ -174,7 +176,7 @@ a.bottom:hover {
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.51);
+  background: rgba(0, 0, 0, 0.09);
   z-index: 1;
 }
 
@@ -185,7 +187,7 @@ a.bottom:hover {
 }
 
 .colum-medium h1 p {
-  padding: 52px 20px 10px 20px;
+  padding: 40px 20px 10px 20px;
   color: #58595b;
   font-family: 'BaskervilleBT-Roman';
   font-size: 26px;
@@ -199,7 +201,7 @@ a.bottom:hover {
 }
 
 .narrow-content {
-  padding: 10px;
+  padding: 26px 10px;
 }
 
 .narrow-content h5 {
@@ -350,16 +352,16 @@ h2 {
 }
 
 .colum-wide {
-  height: 62.55vh;
+  height: 34.55vh;
   background: #dedede;
 }
 
 .colum-medium {
-  height: 36vh;
+  height: 27vh;
 }
 
 .colum-narrow {
-  height: 26.5vh;
+  height: 20.5vh;
   background: #ffffff;
 }
 
@@ -376,7 +378,7 @@ tbody tr td:nth-of-type(1) {
 }
 
 .page-window {
-  max-width: 1170px;
+  max-width: 1000px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -564,7 +566,7 @@ section::before {
   clear: both;
   padding: 12px 0;
   color: #8c8c8c;
-  background: #e6e7e8;
+  background: #dddddd;
 }
 
 .footer .footer-nav {
@@ -721,8 +723,8 @@ section::before {
   position: absolute;
   z-index: 15;
   bottom: 45px;
-  left: -14px;
-  background: #fafbfb;
+  left: 0;
+  background: #fdfdfd;
   text-align: center;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -739,17 +741,16 @@ section::before {
   width: 20px;
   height: 20px;
   position: absolute;
-  border-bottom-right-radius: 5px;
   bottom: -10px;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  background: #fafbfb;
-  right: 70px;
+  background: #f1f1f1;
+  right: 145px;
 }
 
 .contact .address .addr-header {
   width: 100%;
-  height: 150px;
+  height: 190px;
   background: #f1f1f1;
   border-bottom: 3px solid #41332a;
 }
@@ -766,7 +767,7 @@ section::before {
   -webkit-transition: all ease 250ms;
   transition: all ease 250ms;
   overflow: hidden;
-  height: 335px;
+  height: 309px;
 }
 
 .contact .address .addr-info .addr-info-inner.movetop {
