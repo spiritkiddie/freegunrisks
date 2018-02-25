@@ -63,22 +63,22 @@
      
       <section class="main-page">
           <div class="page services"><!--page-->
-            <div class="title">
+            <div class="title" data-background="../images/vegas-2.jpg">
               <h1>Our Services To You</h1>
             </div>
             <div class="page-content">
                 <div class="row no-marging">
                     <div class="col-md-4 service-item training">
                         <div class="item-inner">
-                        <img src="images/training.jpg" alt="">
-                        <div class="service-type">
-                            <h5>Training</h5>
-                            <p>
-                            In addition to our advisory services, FRA offers training and development programs  in risks management.
-                            Across the countries  that we operate within West Africa...
-                            </p>
-                        </div>
-                         <a class="bottom default" href="#" data-toggle="modal" data-target="#training">Read More</a>
+                          <img src="images/training.jpg" alt="">
+                          <div class="service-type">
+                              <h5>Training</h5>
+                              <p>
+                              In addition to our advisory services, FRA offers training and development programs  in risks management.
+                              Across the countries  that we operate within West Africa...
+                              </p>
+                          </div>
+                          <a class="bottom default" href="#" data-toggle="modal" data-target="#training">Read More</a>
                         </div>
                     </div>
                     <div class="col-md-4 service-item Research">
@@ -290,7 +290,13 @@
     <!-- \\\\\\\\\\\\\\\\//////////////// -->
 
     <!-- jQuery -->
-   <script src="lib/jquery/jquery.min.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/css/tether.min.css"></script>
+   <script>
+      if( !window.jQuery ) {
+        document.write('<script src="lib/jquery/jquery.min.js">');
+      }
+   </script>
 
    <!-- Bootstrap Core JavaScript -->
    <script src="lib/bootstrap/js/bootstrap.min.js"></script>

@@ -59,223 +59,243 @@ $('.vegas-1').vegas({
 					 {src: "images/vegas-1.jpg"},
 					 {src: "images/vegas-2.jpg"},
 				 ]
-	});
+});
 
 
-	//send message
-	const message = $('.message');
+//send message
+const message = $('.message');
 
-	$('.msg-header').on('click', 'a', function(event){
-		event.preventDefault();
-		message.toggleClass('is-showing');
-	});
+$('.msg-header').on('click', 'a', function(event){
+    event.preventDefault();
+    message.toggleClass('is-showing');
+});
 
 
-	$('.riskBottom').on('click', function(event){
-		event.preventDefault();
-		window.location.href = 'service.html';
-		$(document).ready(function(){
-			openModal();
-		});
-	});
-	
-	function openModal() {
-		$('#risk-advisory').modal('show');
-	}
+$('.riskBottom').on('click', function(event){
+    event.preventDefault();
+    window.location.href = 'service.html';
+    $(document).ready(function(){
+        openModal();
+    });
+});
 
-	//our services
-	function setServiceHeader () {
-		let serviceItem = $('.service-item');
-		let serviceBtn = serviceItem.find('.bottom');
-		var modalHeader = $('.modal').find('.modal-header');
+function openModal() {
+    $('#risk-advisory').modal('show');
+}
 
-		serviceBtn.on('click', function(event){
-			event.preventDefault();
-			let element = $(this);
-			let serviceImage = element.parents(serviceItem).children('img').prop('src');
-			modalHeader.css({ background: 'url(' + serviceImage + ') no-repeat center', backgroundSize: 'cover' });
-		});
-	}
+//our services
+function setServiceHeader () {
+    let serviceItem = $('.service-item');
+    let serviceBtn = serviceItem.find('.bottom');
+    var modalHeader = $('.modal').find('.modal-header');
 
-  //google map
-	function initMap() {
-		let map, infoWindow;
-		let location = { lat: 52.5196108, lng: 13.3447162 };
-        // Styles a map in night mode.
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: location,
-          zoom: 15,
-          streetViewControl: true,
-          mapTypeControl: true,
-          styles: [
-              {
-                  "featureType": "administrative",
-                  "elementType": "all",
-                  "stylers": [
-                      {
-                          "saturation": "-100"
-                      }
-                  ]
-              },
-              {
-                  "featureType": "administrative.province",
-                  "elementType": "all",
-                  "stylers": [
-                      {
-                          "visibility": "off"
-                      }
-                  ]
-              },
-              {
-                  "featureType": "landscape",
-                  "elementType": "all",
-                  "stylers": [
-                      {
-                          "saturation": -100
-                      },
-                      {
-                          "lightness": 65
-                      },
-                      {
-                          "visibility": "on"
-                      }
-                  ]
-              },
-              {
-                  "featureType": "poi",
-                  "elementType": "all",
-                  "stylers": [
-                      {
-                          "saturation": -100
-                      },
-                      {
-                          "lightness": "50"
-                      },
-                      {
-                          "visibility": "simplified"
-                      }
-                  ]
-              },
-              {
-                  "featureType": "road",
-                  "elementType": "all",
-                  "stylers": [
-                      {
-                          "saturation": "-100"
-                      }
-                  ]
-              },
-              {
-                  "featureType": "road.highway",
-                  "elementType": "all",
-                  "stylers": [
-                      {
-                          "visibility": "simplified"
-                      }
-                  ]
-              },
-              {
-                  "featureType": "road.arterial",
-                  "elementType": "all",
-                  "stylers": [
-                      {
-                          "lightness": "30"
-                      }
-                  ]
-              },
-              {
-                  "featureType": "road.local",
-                  "elementType": "all",
-                  "stylers": [
-                      {
-                          "lightness": "40"
-                      }
-                  ]
-              },
-              {
-                  "featureType": "transit",
-                  "elementType": "all",
-                  "stylers": [
-                      {
-                          "saturation": -100
-                      },
-                      {
-                          "visibility": "simplified"
-                      }
-                  ]
-              },
-              {
-                  "featureType": "water",
-                  "elementType": "geometry",
-                  "stylers": [
-                      {
-                          "hue": "#ffff00"
-                      },
-                      {
-                          "lightness": -25
-                      },
-                      {
-                          "saturation": -97
-                      }
-                  ]
-              },
-              {
-                  "featureType": "water",
-                  "elementType": "labels",
-                  "stylers": [
-                      {
-                          "lightness": -25
-                      },
-                      {
-                          "saturation": -100
-                      }
-                  ]
-              }
-          ]
-        });
+    serviceBtn.on('click', function(event){
+        event.preventDefault();
+        let element = $(this);
+        let serviceImage = element.parents(serviceItem).children('img').prop('src');
+        modalHeader.css({ background: 'url(' + serviceImage + ') no-repeat center', backgroundSize: 'cover' });
+    });
+}
+    
 
-				let marker = new google.maps.Marker({
-					position: location,
-					map: map,
-					title: 'Our Location!'
-				});
+function TitleBG (element) {
+    this.element = element;
+    this.image = this.element.children('.title').data('background');
+    this.background = this.element.find('.title');
 
-				$('.findMe').on('click', function(e){
-          e.preventDefault();
-					let element = $(this);
-					// Note: This example requires that you consent to location sharing when
-					// prompted by your browser. If you see the error "The Geolocation service
-					// failed.", it means you probably did not give permission for the browser to
-					// locate you.
+    this.init()
+}
 
-						infoWindow = new google.maps.InfoWindow;
-						// Try HTML5 geolocation.
-						if (navigator.geolocation) {
-							navigator.geolocation.getCurrentPosition(function(position) {
-								var pos = {
-									lat: position.coords.latitude,
-									lng: position.coords.longitude
-								};
+TitleBG.prototype.init = function () {
+    this.background.css({ background: `url( ${this.image} ) no-repeat center` });
+}
 
-								infoWindow.setPosition(pos);
-								infoWindow.setContent('Your Location.');
-								infoWindow.open(map);
-								map.setCenter(pos);
-							}, function() {
-								handleLocationError(true, infoWindow, map.getCenter());
-							});
-						} else {
-							// Browser doesn't support Geolocation
-							handleLocationError(false, infoWindow, map.getCenter());
-						}
+$('.page').each(function(){
+    let element = $(this);
+    let b2 =  new TitleBG(element);
+})
 
-					function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-						infoWindow.setPosition(pos);
-						infoWindow.setContent(browserHasGeolocation ?
-																	'Error: The Geolocation service failed.' :
-																	'Error: Your browser doesn\'t support geolocation.');
-						infoWindow.open(map);
-					}
-				});
 
-      }
+
+//google map
+function initMap() {
+    let map, infoWindow;
+    let location = { lat: 52.5196108, lng: 13.3447162 };
+    // Styles a map in night mode.
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: location,
+        zoom: 15,
+        streetViewControl: true,
+        mapTypeControl: true,
+        styles: [
+            {
+                "featureType": "administrative",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "saturation": "-100"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative.province",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "landscape",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "saturation": -100
+                    },
+                    {
+                        "lightness": 65
+                    },
+                    {
+                        "visibility": "on"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "saturation": -100
+                    },
+                    {
+                        "lightness": "50"
+                    },
+                    {
+                        "visibility": "simplified"
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "saturation": "-100"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "simplified"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "lightness": "30"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.local",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "lightness": "40"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "saturation": -100
+                    },
+                    {
+                        "visibility": "simplified"
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "hue": "#ffff00"
+                    },
+                    {
+                        "lightness": -25
+                    },
+                    {
+                        "saturation": -97
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "labels",
+                "stylers": [
+                    {
+                        "lightness": -25
+                    },
+                    {
+                        "saturation": -100
+                    }
+                ]
+            }
+        ]
+    });
+
+    let marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: 'Our Location!'
+    });
+
+    $('.findMe').on('click', function(e){
+        e.preventDefault();
+        let element = $(this);
+        // Note: This example requires that you consent to location sharing when
+        // prompted by your browser. If you see the error "The Geolocation service
+        // failed.", it means you probably did not give permission for the browser to
+        // locate you.
+
+        infoWindow = new google.maps.InfoWindow;
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Your Location.');
+                infoWindow.open(map);
+                map.setCenter(pos);
+            }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                                                        'Error: The Geolocation service failed.' :
+                                                        'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
+    });
+
+}

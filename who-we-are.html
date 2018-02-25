@@ -63,7 +63,7 @@
      
       <section class="main-page">
           <div class="page who-we-are"><!--page-->
-            <div class="title">
+            <div class="title" data-background="../images/vegas-1.jpg">
               <h1>Who We Are</h1>
             </div>
             <div class="page-content row no-marging">
@@ -76,7 +76,7 @@
               </div>
 
               <div class="col-md-4 main-content">
-                 <p>
+                <p>
                   Fregun Risk Advisors Ltd (FRA)is an independent risk management firm that focuses on providing top down, 
                   bottom up risk advisory services to Companies and Investors who seek to access Investment opportunities across the West Africa 
                   countries of Ghana, Ivory Coast, and Togo.
@@ -143,8 +143,14 @@
     <!-- ********** Javascript ********** -->
     <!-- \\\\\\\\\\\\\\\\//////////////// -->
 
-    <!-- jQuery -->
-   <script src="lib/jquery/jquery.min.js"></script>
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/css/tether.min.css"></script>
+  <script>
+     if( !window.jQuery ) {
+       document.write('<script src="lib/jquery/jquery.min.js">');
+     }
+  </script>
 
    <!-- Bootstrap Core JavaScript -->
    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
