@@ -56,8 +56,8 @@ $('.vegas-1').vegas({
 		//overlay: 'jscript/overlays/05.png',
 		transition: [ 'fade' ],
 				 slides: [
-					 {src: "images/vegas-1.jpg"},
-					 {src: "images/vegas-2.jpg"},
+					 {src: "images/cocoa-1.jpg"},
+					 {src: "images/maize-2.jpg"},
 				 ]
 });
 
